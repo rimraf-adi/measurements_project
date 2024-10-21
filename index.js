@@ -30,7 +30,7 @@ app.get('/api/v1/sensor1', (req, res) => {
         if (!data) {
             return res.status(404).json({ message: 'No data found' });
         }
-        res.status(200).json(JSON.parse(data));
+        res.send(data);
     });
 });
 app.listen(PORT, () => {

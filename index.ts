@@ -33,7 +33,7 @@ app.get('/api/v1/sensor1', (req: Request, res: Response) => {
             return res.status(404).json({ message: 'No data found' });
         }
 
-        res.status(200).json(JSON.parse(data));
+        res.send(data);
     });
 });
 
