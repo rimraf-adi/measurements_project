@@ -14,8 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.post('/api/v1/sensor1', (req: Request, res: Response) => {
     const data = req.body;
-
-        res.status(201).json({ message: 'Data successfully saved', data });
+    console.log(data)
     });
 
 
