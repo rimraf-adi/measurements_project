@@ -15,27 +15,9 @@ app.get('/', (req: Request, res: Response) => {
 app.post('/api/v1/sensor1', (req: Request, res: Response) => {
     const data = req.body;
 
-    fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf8', (err) => {
-        if (err) {
-            return res.status(500).json({ message: 'Error writing data to file', error: err });
-        }
         res.status(201).json({ message: 'Data successfully saved', data });
     });
-});
 
-app.get('/api/v1/sensor1', (req: Request, res: Response) => {
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).json({ message: 'Error reading data from file', error: err });
-        }
-
-        if (!data) {
-            return res.status(404).json({ message: 'No data found' });
-        }
-
-        res.send(data);
-    });
-});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
